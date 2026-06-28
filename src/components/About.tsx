@@ -1,20 +1,30 @@
-import { GraduationCap, Target, TrendingUp } from "lucide-react";
+import { Compass, CalendarX, Clock, UserX, Brain, ArrowRight } from "lucide-react";
 
-const features = [
+const struggles = [
   {
-    icon: GraduationCap,
-    title: "Expert Tutors",
-    body: "Top-percentile MCAT scorers and medical school mentors with years of teaching experience.",
+    icon: Compass,
+    title: "Don't know where to start",
+    detail: "The sheer scope of the MCAT leaves most students paralysed before they open a single book.",
   },
   {
-    icon: Target,
-    title: "Personalized Plans",
-    body: "We diagnose your weak spots, then build a study plan around your timeline and target score.",
+    icon: CalendarX,
+    title: "Unstructured study plans",
+    detail: "Jumping between resources without a clear sequence wastes weeks of valuable prep time.",
   },
   {
-    icon: TrendingUp,
-    title: "Proven Results",
-    body: "Our students consistently lift their composite scores by 10+ points across full-length exams.",
+    icon: Clock,
+    title: "Months on low-yield material",
+    detail: "Over-indexing on rarely-tested topics means high-yield areas never get the attention they deserve.",
+  },
+  {
+    icon: UserX,
+    title: "No accountability or guidance",
+    detail: "Studying alone makes it easy to fall behind — with no one to notice until it's too late.",
+  },
+  {
+    icon: Brain,
+    title: "Overwhelmed by content volume",
+    detail: "Biology, chemistry, physics, psychology — the breadth alone is enough to derail any plan.",
   },
 ];
 
@@ -22,52 +32,66 @@ export function About() {
   return (
     <section id="about" className="bg-white py-20 md:py-28">
       <div className="container-page">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">
-              About us
-            </p>
-            <h2 className="mt-3 text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl">
-              A coaching team built by{" "}
-              <span className="text-brand-700">future doctors, for future doctors.</span>
-            </h2>
-          </div>
 
-          <div className="lg:col-span-7">
-            <p className="text-lg leading-relaxed text-slate-600">
-              MCAT Coaching Classes was founded by a group of physicians and
-              top-percentile MCAT scorers who wanted to replace cookie-cutter
-              prep with something that actually works. Over the last several
-              years we've mentored more than{" "}
-              <span className="font-semibold text-slate-900">1,000 students</span>{" "}
-              into their dream medical schools — through diagnostic-first
-              coaching, deeply personalized study plans, and live 1:1 teaching
-              that adapts to how you learn.
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-slate-600">
-              Our mission is simple: make elite MCAT prep accessible, human, and
-              measurable. No bloated lectures. No generic question banks. Just
-              clear strategy, expert tutors, and a plan that moves your score.
-            </p>
-          </div>
+        {/* Header */}
+        <div className="max-w-2xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-700">
+            About us
+          </p>
+          <h2 className="mt-3 text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl">
+            MCAT prep is more than just{" "}
+            <span className="text-brand-700">studying content</span>
+          </h2>
+          <p className="mt-4 text-lg text-slate-600">
+            Most students don't fail because they're not smart enough — they fail
+            because of how they prepare. Here's what gets in the way:
+          </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
-          {features.map((f) => (
-            <article
-              key={f.title}
-              className="group rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-100 hover:shadow-md"
+        {/* Struggle cards */}
+        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {struggles.map((s, i) => (
+            <div
+              key={s.title}
+              className="group relative overflow-hidden rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition hover:shadow-md hover:border-rose-100"
             >
-              <span className="icon-circle mb-4 h-11 w-11">
-                <f.icon className="h-5 w-5" />
+              {/* large faded number */}
+              <span className="absolute right-4 top-3 text-7xl font-black text-slate-50 select-none leading-none">
+                {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="text-lg font-semibold text-slate-900">{f.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                {f.body}
+
+              <span className="relative inline-flex h-11 w-11 items-center justify-center rounded-full bg-rose-50 text-rose-500">
+                <s.icon className="h-5 w-5" />
+              </span>
+
+              <p className="relative mt-4 text-base font-bold text-slate-900">
+                {s.title}
               </p>
-            </article>
+              <p className="relative mt-2 text-sm leading-relaxed text-slate-500">
+                {s.detail}
+              </p>
+            </div>
           ))}
+
+          {/* Goal card — fills the 6th slot in a 3-col grid */}
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-brand-700 to-brand-600 p-6 text-white shadow-sm sm:col-span-2 lg:col-span-1">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-200">
+              Our promise
+            </p>
+            <p className="mt-3 text-lg font-bold leading-snug">
+              A clear roadmap, expert instruction, and mentorship — from day one
+              to test day.
+            </p>
+            <a
+              href="#services"
+              className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-200 hover:text-white transition"
+            >
+              See how we do it
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
         </div>
+
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MessageCircle, MapPin } from "lucide-react";
 
 export function Contact() {
   return (
@@ -24,14 +24,14 @@ export function Contact() {
               <ContactRow
                 icon={<Mail className="h-5 w-5" />}
                 label="Email"
-                value="contact@mcatcoaching.com"
-                href="mailto:contact@mcatcoaching.com"
+                value="yatharth1604@gmail.com"
+                href="mailto:yatharth1604@gmail.com"
               />
               <ContactRow
                 icon={<Phone className="h-5 w-5" />}
                 label="Phone"
-                value="+1 (555) 123-4567"
-                href="tel:+15551234567"
+                value="9937797985"
+                href="tel:+919937797985"
               />
               <ContactRow
                 icon={<MapPin className="h-5 w-5" />}
@@ -39,9 +39,10 @@ export function Contact() {
                 value="Mon–Sat · 9am – 8pm"
               />
               <ContactRow
-                icon={<MapPin className="h-5 w-5" />}
-                label="Location"
-                value="Remote, worldwide"
+                icon={<MessageCircle className="h-5 w-5" />}
+                label="WhatsApp"
+                value="9937797985"
+                href="https://wa.me/919937797985"
               />
             </div>
           </div>
