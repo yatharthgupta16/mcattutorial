@@ -77,7 +77,7 @@ function ContactRow({
 
   if (href) {
     return (
-      <a href={href} className="block">
+      <a href={href} className="block" target="_blank" rel="noopener noreferrer">
         {content}
       </a>
     );
