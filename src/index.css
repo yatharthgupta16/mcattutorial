@@ -7,12 +7,23 @@
     scroll-behavior: smooth;
   }
 
-  body {
-    @apply font-sans text-slate-800 antialiased bg-white;
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 
-  :root {
-    --brand: #047857;
+  body {
+    @apply bg-white font-sans text-[16px] leading-[1.65] text-body antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-ink;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
   }
 
   ::selection {
@@ -23,18 +34,26 @@
 
 @layer components {
   .container-page {
-    @apply mx-auto w-full max-w-6xl px-6;
+    @apply mx-auto w-full max-w-[1160px] px-6;
+  }
+
+  .section {
+    @apply py-16 sm:py-[88px];
+  }
+
+  .eyebrow {
+    @apply mb-3.5 block text-[12.5px] font-bold uppercase tracking-[0.22em] text-green;
+  }
+
+  .btn {
+    @apply inline-flex cursor-pointer items-center justify-center gap-[9px] rounded-full px-[26px] py-[13px] text-[15px] font-bold transition duration-150 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-green;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-700 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 disabled:opacity-60;
+    @apply bg-green-dark text-white shadow-btn hover:-translate-y-px hover:bg-green-darker;
   }
 
-  .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-slate-700 transition hover:text-brand-700;
-  }
-
-  .icon-circle {
-    @apply inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-50 text-brand-700;
+  .btn-secondary {
+    @apply border-[1.5px] border-[#cfe6da] bg-white text-green-dark hover:bg-green-soft;
   }
 }

@@ -1,56 +1,53 @@
-import { GraduationCap } from "lucide-react";
+import { EMAIL, SITE_NAME, SITE_TAGLINE, WHATSAPP_URL } from "../lib/site";
+import { Logo } from "./Logo";
 
 export function Footer() {
   return (
-    <footer className="border-t border-slate-100 bg-white py-12">
-      <div className="container-page flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
-        <div className="max-w-sm">
-          <a href="#home" className="flex items-center gap-2 text-slate-900">
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500 to-brand-400 text-white shadow-sm">
-              <GraduationCap className="h-5 w-5" />
+    <footer className="bg-[#0c1a26] pb-[34px] pt-16 text-[#9fb1bd]">
+      <div className="container-page">
+        <div className="flex flex-wrap justify-between gap-9 border-b border-white/10 pb-10">
+          <div className="max-w-[380px]">
+            <Logo className="mb-1.5 text-white" />
+            <p className="mb-3.5 text-sm font-bold text-green">{SITE_TAGLINE}</p>
+            <p className="text-[14.5px]">
+              Helping future medical students prepare with confidence through personalized
+              one-on-one online coaching.
+            </p>
+          </div>
+          <div className="grid content-start gap-3 text-[14.5px]">
+            <a
+              className="flex items-center gap-2.5 transition hover:text-white"
+              href={`mailto:${EMAIL}`}
+            >
+              📧 Email
+            </a>
+            <a
+              className="flex items-center gap-2.5 transition hover:text-white"
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              📱 WhatsApp
+            </a>
+            <span className="flex items-center gap-2.5">
+              🌎 Serving Students Across the United States
             </span>
-            <span className="text-base font-bold tracking-tight">
-              MCAT Coaching Classes
-            </span>
-          </a>
-          <p className="mt-3 text-sm text-slate-500">
-            Personalized MCAT prep and live 1:1 classes from expert tutors.
-          </p>
+          </div>
         </div>
-
-        <nav
-          aria-label="Footer"
-          className="grid grid-cols-2 gap-x-12 gap-y-2 text-sm sm:grid-cols-3"
-        >
-          <a className="text-slate-600 hover:text-brand-700" href="#home">
-            Home
-          </a>
-          <a className="text-slate-600 hover:text-brand-700" href="#about">
-            About
-          </a>
-          <a className="text-slate-600 hover:text-brand-700" href="#services">
-            Services
-          </a>
-          <a
-            className="text-slate-600 hover:text-brand-700"
-            href="/services#consultation"
-          >
-            Consultation
-          </a>
-          <a
-            className="text-slate-600 hover:text-brand-700"
-            href="/services#biology"
-          >
-            1:1 Classes
-          </a>
-          <a className="text-slate-600 hover:text-brand-700" href="#contact">
-            Contact
-          </a>
-        </nav>
-      </div>
-
-      <div className="container-page mt-10 border-t border-slate-100 pt-6 text-xs text-slate-500">
-        © {new Date().getFullYear()} MCAT Coaching Classes. All rights reserved.
+        <div className="flex flex-wrap justify-between gap-3 pt-[26px] text-[13.5px]">
+          <span>
+            © {new Date().getFullYear()} {SITE_NAME}. All Rights Reserved.
+          </span>
+          <span className="flex items-center gap-2">
+            <a className="transition hover:text-white" href="#top">
+              Privacy Policy
+            </a>
+            <span>|</span>
+            <a className="transition hover:text-white" href="#top">
+              Terms &amp; Conditions
+            </a>
+          </span>
+        </div>
       </div>
     </footer>
   );

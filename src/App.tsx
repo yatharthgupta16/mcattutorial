@@ -1,11 +1,12 @@
-import { Toaster } from "sonner";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
-import { About } from "./components/About";
-import { Services } from "./components/Services";
-import { Contact } from "./components/Contact";
+import { Struggle } from "./components/Struggle";
+import { Program } from "./components/Program";
+import { HowItWorks } from "./components/HowItWorks";
+import { Comparison } from "./components/Comparison";
+import { Faq } from "./components/Faq";
+import { FinalCta } from "./components/FinalCta";
 import { Footer } from "./components/Footer";
-import { FloatingCTA } from "./components/FloatingCTA";
 
 export default function App() {
   return (
@@ -13,19 +14,14 @@ export default function App() {
       <Header />
       <main>
         <Hero />
-        <About />
-        <Services />
-        <Contact />
+        <Struggle />
+        <Program />
+        <HowItWorks />
+        <Comparison />
+        <Faq />
+        <FinalCta />
       </main>
       <Footer />
-      <FloatingCTA />
-      <Toaster
-        position="top-center"
-        richColors
-        toastOptions={{
-          style: { fontFamily: "Inter, sans-serif" },
-        }}
-      />
     </div>
   );
 }

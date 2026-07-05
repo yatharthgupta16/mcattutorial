@@ -1,29 +1,27 @@
-# MCAT Coaching Classes
+# NorthStar Med — Personalized Online MCAT Coaching
 
-A single-page marketing site for MCAT Coaching Classes built from the spec in `instructions.md`.
+Single-page marketing site for NorthStar Med, offering personalized one-on-one online MCAT coaching.
 
 ## Stack
 
 - Vite + React 18 + TypeScript
-- Tailwind CSS (custom emerald palette)
-- Radix UI (`Dialog`, `NavigationMenu`)
-- `react-hook-form` + `zod` for the booking form
-- `sonner` for toast notifications
-- `lucide-react` for icons
+- Tailwind CSS (design tokens mapped from the reference design: ink/body/muted text colors, green brand scale, mint section backgrounds)
+- No runtime dependencies beyond React — icons are inline SVGs (`src/components/icons.tsx`)
 
 ## Sections
 
-- **Header** with nested **Services ▸ Live 1:1 Classes** dropdown
-- **Hero** with oversized headline + emerald gradient schedule card
-- **About Us** with 3 feature cards (Expert Tutors, Personalized Plans, Proven Results)
-- **Services** — Consultation card + Live 1:1 Classes card with sub-cards (Bio, Biochem, Physics, CARS)
-- **Contact Us** — email & phone in icon rows
-- **Footer** with quick links
-- **Floating CTA** (bottom-right) opens a modal with Zod-validated booking form
+- **Header** — sticky nav with anchor links (How it Works, FAQ), booking CTA, and WhatsApp button
+- **Hero** — headline, intro copy, CTAs, and feature check strip
+- **The Challenge** — four pain-point cards, each with a "how coaching helps" callout
+- **The Program** — three pillars, each with two feature cards
+- **How It Works** — four-step timeline
+- **The Difference** — self-study vs. coaching comparison table
+- **FAQ** — ten native `<details>` accordions
+- **Final CTA** — gradient panel anchored at `#calendar`
+- **Footer** — brand, contact links, legal
 
-## Backend note
-
-The spec calls for Lovable Cloud (Supabase) persistence with a TanStack server function. To keep this scaffold runnable locally with no extra config, `submitBooking` in `src/lib/bookings.ts` writes to `localStorage` instead. Replace the body of that function with a `createServerFn` call (or a `fetch` to your Supabase endpoint) to wire up real persistence — the input validation and call sites stay the same.
+All "Book Your Free MCAT Consultation" buttons open the Google Calendar booking page; all
+"Chat on WhatsApp" buttons open WhatsApp. Both URLs (plus email) live in `src/lib/site.ts`.
 
 ## Run
 
@@ -34,9 +32,18 @@ npm run dev
 
 Then open the URL Vite prints.
 
-## Build
+## Quality checks
+
+```bash
+npm run lint
+npm run build   # runs tsc -b, then vite build
+```
+
+## Deploy
+
+The site deploys to GitHub Pages (base path `/mcattutorial/` is set in `vite.config.ts`):
 
 ```bash
 npm run build
-npm run preview
+npm run deploy
 ```

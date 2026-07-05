@@ -1,60 +1,58 @@
-import { ArrowRight, Sparkles, CalendarCheck } from "lucide-react";
+import { CtaButtons } from "./CtaButtons";
+
+const highlights = [
+  "Live 1-on-1 MCAT Coaching",
+  "Personalized Study Plans",
+  "Question & Passage Analysis",
+  "Flexible Online Scheduling",
+];
 
 export function Hero() {
   return (
-    <section
-      id="home"
-      className="relative overflow-hidden bg-gradient-to-b from-brand-50/60 via-white to-white"
-    >
-      <div className="container-page grid grid-cols-1 items-stretch gap-12 py-20 md:py-28 lg:grid-cols-12">
-        <div className="lg:col-span-8">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-100 bg-white px-3 py-1 text-xs font-medium text-brand-700 shadow-sm">
-            <Sparkles className="h-3.5 w-3.5" />
-            Personalized prep · 1:1 expert tutors
-          </div>
+    <section id="top" className="bg-gradient-to-b from-mint to-white pb-14 pt-16 sm:pb-[84px] sm:pt-24">
+      <div className="mx-auto w-full max-w-[860px] px-6">
+        <span className="mb-[26px] inline-flex items-center gap-2 rounded-full border border-[#d7ece1] bg-white px-4 py-2 text-[13.5px] font-semibold text-green-dark shadow-badge">
+          ✓ Live Online • Personalized • One-on-One
+        </span>
 
-          <h1 className="text-5xl font-extrabold leading-[1.05] tracking-tight text-slate-900 sm:text-6xl md:text-7xl">
-            Personalized MCAT Coaching for{" "}
-            <span className="bg-gradient-to-r from-brand-600 to-brand-400 bg-clip-text text-transparent">
-              Future Medical Students
-            </span>
-          </h1>
+        <h1 className="mb-[18px] text-[clamp(38px,5.4vw,62px)] font-extrabold">
+          Personalized MCAT Coaching for{" "}
+          <span className="text-green">Medical School Applicants</span>
+        </h1>
 
-          <p className="mt-6 max-w-2xl text-lg text-slate-600">
-            Prepare for the MCAT with expert-led online classes, structured
-            study plans, regular assessments, and personalized mentorship
-            designed to keep you on track from day one.
+        <p className="mb-[22px] text-[clamp(18px,2.2vw,22px)] font-semibold text-ink">
+          One-on-One Guidance Designed Around Your Goals, Timeline, and Target Score
+        </p>
+
+        <div className="max-w-[720px] space-y-3.5 text-[17px]">
+          <p>Preparing for the MCAT can feel overwhelming.</p>
+          <p>
+            With countless resources, conflicting advice, and no clear way to measure
+            progress, many students spend months studying without seeing the improvement
+            they expect.
           </p>
-
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <a
-              href="#contact"
-              className="flex items-center justify-center gap-3 rounded-2xl bg-brand-700 px-8 py-5 text-lg font-semibold text-white shadow-md transition hover:bg-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
-            >
-              Book a Free Demo Class
-              <ArrowRight className="h-5 w-5" />
-            </a>
-            <a
-              href="https://calendar.app.google/vRLtL7SiDRxSYXGe8"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 rounded-2xl border-2 border-brand-200 bg-white px-8 py-5 text-lg font-semibold text-brand-700 shadow-sm transition hover:border-brand-400 hover:bg-brand-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
-            >
-              <CalendarCheck className="h-5 w-5" />
-              Schedule a Consultation
-            </a>
-          </div>
+          <p>
+            Our personalized online MCAT coaching combines one-on-one tutoring, customized
+            study plans, question and passage analysis, and ongoing mentorship to help you
+            prepare with confidence and achieve your target score.
+          </p>
         </div>
 
-        <div className="lg:col-span-4 lg:flex">
-          <div className="relative w-full overflow-hidden rounded-3xl shadow-xl">
-            <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-brand-500 to-brand-400 opacity-20 blur-2xl" />
-            <img
-              src={`${import.meta.env.BASE_URL}hero.jpg`}
-              alt="Student studying for the MCAT"
-              className="relative h-full w-full object-cover"
-            />
-          </div>
+        <p className="mb-[18px] mt-[30px] text-lg font-bold text-ink">
+          Let's Build a Study Plan That Works for You
+        </p>
+
+        <CtaButtons withIcons />
+
+        <div className="mt-[30px] flex flex-wrap gap-x-[26px] gap-y-3 text-[14.5px] font-semibold text-ink">
+          {highlights.map((item) => (
+            <span key={item} className="inline-flex items-center gap-2">
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-green-soft text-xs font-extrabold text-green-dark">
+                ✓
+              </span>
+              {item}
+            </span>
+          ))}
         </div>
       </div>
     </section>
