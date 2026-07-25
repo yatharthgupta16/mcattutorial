@@ -1,6 +1,7 @@
-import type { ReactNode } from "react";
+import { useId, useState, type ReactNode } from "react";
 import { SectionHead } from "./SectionHead";
 import { CtaBand } from "./CtaBand";
+import { Reveal } from "./Reveal";
 
 interface FaqItem {
   question: string;
@@ -175,6 +176,9 @@ const faqs: FaqItem[] = [
 ];
 
 export function Faq() {
+  const [openIndex, setOpenIndex] = useState(0);
+  const idPrefix = useId();
+
   return (
     <section id="faq" className="section bg-white">
       <div className="container-page">
@@ -196,23 +200,44 @@ export function Faq() {
         </SectionHead>
 
         <div className="mx-auto grid max-w-[820px] gap-3.5">
-          {faqs.map((faq, i) => (
-            <details
-              key={faq.question}
-              open={i === 0}
-              className="group overflow-hidden rounded-[14px] border border-line bg-white shadow-card"
-            >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-[26px] py-[22px] text-[16.5px] font-bold text-ink [&::-webkit-details-marker]:hidden">
-                {faq.question}
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-green-soft text-[17px] font-bold text-green-dark transition-transform duration-200 group-open:rotate-45">
-                  +
-                </span>
-              </summary>
-              <div className="px-[26px] pb-6 text-[15.5px] [&_p]:mb-2.5 [&_p:last-child]:mb-0 [&_ul]:my-1.5 [&_ul]:mb-3 [&_ul]:ml-5 [&_ul]:grid [&_ul]:list-disc [&_ul]:gap-1.5">
-                {faq.answer}
-              </div>
-            </details>
-          ))}
+          {faqs.map((faq, i) => {
+            const open = openIndex === i;
+            const panelId = `${idPrefix}-faq-panel-${i}`;
+            return (
+              <Reveal key={faq.question} delay={Math.min(i * 55, 400)}>
+                <div className="overflow-hidden rounded-[14px] border border-line bg-white shadow-card transition-shadow duration-200 hover:shadow-lg">
+                  <button
+                    type="button"
+                    onClick={() => setOpenIndex(open ? -1 : i)}
+                    aria-expanded={open}
+                    aria-controls={panelId}
+                    className="flex w-full cursor-pointer items-center justify-between gap-4 px-[26px] py-[22px] text-left text-[16.5px] font-bold text-ink"
+                  >
+                    {faq.question}
+                    <span
+                      className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-green-soft text-[17px] font-bold text-green-dark transition-transform duration-300 ${
+                        open ? "rotate-45" : ""
+                      }`}
+                    >
+                      +
+                    </span>
+                  </button>
+                  <div
+                    id={panelId}
+                    className={`grid transition-[grid-template-rows] duration-300 ease-out ${
+                      open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <div className="px-[26px] pb-6 text-[15.5px] [&_p]:mb-2.5 [&_p:last-child]:mb-0 [&_ul]:my-1.5 [&_ul]:mb-3 [&_ul]:ml-5 [&_ul]:grid [&_ul]:list-disc [&_ul]:gap-1.5">
+                        {faq.answer}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
 
         <CtaBand

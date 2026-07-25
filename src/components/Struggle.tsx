@@ -1,6 +1,7 @@
 import type { ComponentType, ReactNode } from "react";
 import { SectionHead } from "./SectionHead";
 import { CtaBand } from "./CtaBand";
+import { Reveal } from "./Reveal";
 import { ClockIcon, CompassIcon, HelpIcon, TrendUpIcon } from "./icons";
 
 interface PainPoint {
@@ -56,9 +57,9 @@ const painPoints: PainPoint[] = [
 
 function PainCard({ point, index }: { point: PainPoint; index: number }) {
   return (
-    <article className="flex flex-col gap-3 rounded-card border border-line bg-white p-[30px] shadow-card">
+    <article className="group flex flex-col gap-3 rounded-card border border-line bg-white p-[30px] shadow-card transition duration-200 ease-out hover:-translate-y-1 hover:shadow-lg">
       <div className="flex items-center justify-between">
-        <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-flag-chip text-flag">
+        <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-flag-chip text-flag transition-transform duration-200 group-hover:scale-110">
           <point.icon />
         </span>
         <span className="text-[44px] font-extrabold leading-none text-[#eef1f4]">
@@ -124,7 +125,9 @@ export function Struggle() {
 
         <Grid2>
           {painPoints.map((point, i) => (
-            <PainCard key={point.title} point={point} index={i} />
+            <Reveal key={point.title} delay={i * 90}>
+              <PainCard point={point} index={i} />
+            </Reveal>
           ))}
         </Grid2>
 

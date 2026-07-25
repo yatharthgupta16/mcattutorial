@@ -1,5 +1,6 @@
 import { SectionHead } from "./SectionHead";
 import { CtaBand } from "./CtaBand";
+import { Reveal } from "./Reveal";
 
 const onYourOwn = [
   "Too many resources to choose from",
@@ -41,32 +42,36 @@ export function Comparison() {
         </SectionHead>
 
         <div className="grid overflow-hidden rounded-[20px] border border-line shadow-card min-[761px]:grid-cols-2">
-          <div className="bg-white px-[34px] py-[38px]">
-            <h3 className="mb-[22px] flex items-center gap-2.5 text-[19px] font-extrabold">
-              Preparing on Your Own
-            </h3>
-            <ul className="grid list-none gap-4 text-[15.5px]">
-              {onYourOwn.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className={`${markBase} bg-flag-chip text-flag`}>✕</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="bg-green-dark px-[34px] py-[38px] text-[#e7f5ee]">
-            <h3 className="mb-[22px] flex items-center gap-2.5 text-[19px] font-extrabold text-white">
-              With Personalized MCAT Coaching
-            </h3>
-            <ul className="grid list-none gap-4 text-[15.5px]">
-              {withCoaching.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className={`${markBase} bg-white/15 text-[#7ee2b4]`}>✓</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <Reveal>
+            <div className="h-full bg-white px-[34px] py-[38px]">
+              <h3 className="mb-[22px] flex items-center gap-2.5 text-[19px] font-extrabold">
+                Preparing on Your Own
+              </h3>
+              <ul className="grid list-none gap-4 text-[15.5px]">
+                {onYourOwn.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className={`${markBase} bg-flag-chip text-flag`}>✕</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+          <Reveal delay={150}>
+            <div className="h-full bg-green-dark px-[34px] py-[38px] text-[#e7f5ee]">
+              <h3 className="mb-[22px] flex items-center gap-2.5 text-[19px] font-extrabold text-white">
+                With Personalized MCAT Coaching
+              </h3>
+              <ul className="grid list-none gap-4 text-[15.5px]">
+                {withCoaching.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className={`${markBase} bg-white/15 text-[#7ee2b4]`}>✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
         </div>
 
         <CtaBand

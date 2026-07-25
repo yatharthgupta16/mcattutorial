@@ -1,6 +1,7 @@
 import type { ComponentType } from "react";
 import { SectionHead } from "./SectionHead";
 import { CtaBand } from "./CtaBand";
+import { Reveal } from "./Reveal";
 import { Grid2 } from "./Struggle";
 import {
   CalendarIcon,
@@ -104,20 +105,19 @@ export function Program() {
                 {pillar.label}
               </span>
               <Grid2>
-                {pillar.features.map((f) => (
-                  <article
-                    key={f.title}
-                    className="rounded-card border border-line bg-white p-[30px] shadow-card transition duration-200 ease-out hover:-translate-y-1 hover:shadow-lg"
-                  >
-                    <span className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-green-soft text-green-dark">
-                      <f.icon />
-                    </span>
-                    <h3 className="mb-1.5 text-[19px] font-bold">{f.title}</h3>
-                    <span className="mb-2.5 block text-[15px] font-semibold text-green-dark">
-                      {f.tag}
-                    </span>
-                    <p className="text-[15px]">{f.body}</p>
-                  </article>
+                {pillar.features.map((f, i) => (
+                  <Reveal key={f.title} delay={i * 90}>
+                    <article className="group rounded-card border border-line bg-white p-[30px] shadow-card transition duration-200 ease-out hover:-translate-y-1 hover:shadow-lg">
+                      <span className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-green-soft text-green-dark transition-transform duration-200 group-hover:scale-110">
+                        <f.icon />
+                      </span>
+                      <h3 className="mb-1.5 text-[19px] font-bold">{f.title}</h3>
+                      <span className="mb-2.5 block text-[15px] font-semibold text-green-dark">
+                        {f.tag}
+                      </span>
+                      <p className="text-[15px]">{f.body}</p>
+                    </article>
+                  </Reveal>
                 ))}
               </Grid2>
             </div>

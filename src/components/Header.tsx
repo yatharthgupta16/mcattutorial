@@ -1,4 +1,5 @@
 import { CALENDAR_URL, WHATSAPP_URL } from "../lib/site";
+import { useScrollProgress } from "../hooks/useScrollProgress";
 import { Logo } from "./Logo";
 import { WhatsAppIcon } from "./icons";
 
@@ -8,8 +9,14 @@ const navLinks = [
 ];
 
 export function Header() {
+  const { progress, scrolled } = useScrollProgress();
+
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur-[10px]">
+    <header
+      className={`sticky top-0 z-50 bg-white/95 backdrop-blur-[10px] transition-shadow duration-300 ${
+        scrolled ? "shadow-[0_4px_20px_rgba(16,32,46,.08)]" : ""
+      }`}
+    >
       <div className="container-page flex min-h-[68px] flex-wrap items-center justify-between gap-x-4 gap-y-2 py-2">
         <Logo withTagline className="text-ink" />
 
@@ -44,6 +51,13 @@ export function Header() {
             <WhatsAppIcon size={22} />
           </a>
         </div>
+      </div>
+
+      <div className="h-[3px] w-full bg-line/50" aria-hidden="true">
+        <div
+          className="h-full bg-gradient-to-r from-green to-green-dark transition-[width] duration-150 ease-out"
+          style={{ width: `${progress}%` }}
+        />
       </div>
     </header>
   );

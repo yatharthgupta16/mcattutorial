@@ -16,8 +16,8 @@ export default {
         mint: "#f2faf6",
         line: "#e6eaee",
         flag: {
-          DEFAULT: "#e05252",
-          chip: "#fdecec",
+          DEFAULT: "#b45309",
+          chip: "#fef3e2",
         },
         whatsapp: "#25d366",
       },
