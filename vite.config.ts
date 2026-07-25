@@ -9,5 +9,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: '/mcattutorial/',
+  base: process.env.VERCEL ? '/' : '/mcattutorial/',
 });
