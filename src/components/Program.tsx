@@ -25,7 +25,7 @@ interface Pillar {
 
 const pillars: Pillar[] = [
   {
-    label: "Pillar 1 — Plan Your Preparation",
+    label: "Plan Your Preparation",
     features: [
       {
         icon: PlanIcon,
@@ -42,7 +42,7 @@ const pillars: Pillar[] = [
     ],
   },
   {
-    label: "Pillar 2 — Improve Your Performance",
+    label: "Improve Your Performance",
     features: [
       {
         icon: VideoIcon,
@@ -59,7 +59,7 @@ const pillars: Pillar[] = [
     ],
   },
   {
-    label: "Pillar 3 — Stay on Track",
+    label: "Stay on Track",
     features: [
       {
         icon: ChecklistIcon,
@@ -82,7 +82,6 @@ export function Program() {
     <section className="section bg-mint">
       <div className="container-page">
         <SectionHead
-          eyebrow="The Program"
           title={
             <>
               What's Included in Your{" "}
@@ -108,7 +107,7 @@ export function Program() {
                 {pillar.features.map((f) => (
                   <article
                     key={f.title}
-                    className="rounded-card border border-line bg-white p-[30px] shadow-card"
+                    className="rounded-card border border-line bg-white p-[30px] shadow-card transition duration-200 ease-out hover:-translate-y-1 hover:shadow-lg"
                   >
                     <span className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-green-soft text-green-dark">
                       <f.icon />

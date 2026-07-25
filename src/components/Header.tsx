@@ -10,7 +10,7 @@ const navLinks = [
 export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur-[10px]">
-      <div className="container-page flex h-[68px] items-center justify-between">
+      <div className="container-page flex min-h-[68px] flex-wrap items-center justify-between gap-x-4 gap-y-2 py-2">
         <Logo withTagline className="text-ink" />
 
         <nav
@@ -24,9 +24,9 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex shrink-0 items-center gap-3 max-[820px]:ml-auto">
           <a
-            className="btn btn-primary px-[22px] py-[11px] text-sm"
+            className="btn btn-primary whitespace-nowrap px-[18px] py-[10px] text-[13px] min-[380px]:px-[22px] min-[380px]:py-[11px] min-[380px]:text-sm"
             href={CALENDAR_URL}
             target="_blank"
             rel="noopener noreferrer"

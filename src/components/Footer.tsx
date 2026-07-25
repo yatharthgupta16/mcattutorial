@@ -1,5 +1,6 @@
-import { EMAIL, SITE_NAME, SITE_TAGLINE, WHATSAPP_URL } from "../lib/site";
+import { EMAIL, SITE_NAME, SITE_TAGLINE, WHATSAPP_DISPLAY, WHATSAPP_URL } from "../lib/site";
 import { Logo } from "./Logo";
+import { MailIcon, WhatsAppIcon } from "./icons";
 
 export function Footer() {
   return (
@@ -19,7 +20,8 @@ export function Footer() {
               className="flex items-center gap-2.5 transition hover:text-white"
               href={`mailto:${EMAIL}`}
             >
-              📧 Email
+              <MailIcon size={17} />
+              {EMAIL}
             </a>
             <a
               className="flex items-center gap-2.5 transition hover:text-white"
@@ -27,11 +29,9 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              📱 WhatsApp
+              <WhatsAppIcon size={17} />
+              {WHATSAPP_DISPLAY}
             </a>
-            <span className="flex items-center gap-2.5">
-              🌎 Serving Students Across the United States
-            </span>
           </div>
         </div>
         <div className="flex flex-wrap justify-between gap-3 pt-[26px] text-[13.5px]">

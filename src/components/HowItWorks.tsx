@@ -26,7 +26,6 @@ export function HowItWorks() {
       <div className="container-page">
         <SectionHead
           center
-          eyebrow="How It Works"
           title={
             <>
               How Our Online <span className="text-green">MCAT Coaching Works</span>

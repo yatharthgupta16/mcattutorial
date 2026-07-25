@@ -27,7 +27,6 @@ export function Comparison() {
     <section className="section bg-mint">
       <div className="container-page">
         <SectionHead
-          eyebrow="The Difference"
           title={
             <>
               Why Choose <span className="text-green">Personalized MCAT Coaching?</span>

@@ -87,7 +87,7 @@ function PainCard({ point, index }: { point: PainPoint; index: number }) {
       )}
       <div className="mt-1.5 rounded-xl bg-green-soft px-[18px] py-4">
         <span className="mb-[7px] flex items-center gap-2 text-[12.5px] font-bold uppercase tracking-[0.12em] text-green-dark">
-          ✓ How personalized coaching helps
+          How personalized coaching helps
         </span>
         <p className="text-[14.5px] text-[#2c4a3c]">{point.helps}</p>
       </div>
@@ -104,7 +104,6 @@ export function Struggle() {
     <section className="section bg-white">
       <div className="container-page">
         <SectionHead
-          eyebrow="The Challenge"
           title={
             <>
               Why Many Students <span className="text-green">Struggle with the MCAT</span>

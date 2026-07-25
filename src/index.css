@@ -14,7 +14,7 @@
   }
 
   body {
-    @apply bg-white font-sans text-[16px] leading-[1.65] text-body antialiased;
+    @apply overflow-x-hidden bg-white font-sans text-[16px] leading-[1.65] text-body antialiased;
   }
 
   h1,
@@ -24,6 +24,7 @@
     @apply text-ink;
     line-height: 1.15;
     letter-spacing: -0.02em;
+    overflow-wrap: break-word;
   }
 
   ::selection {
