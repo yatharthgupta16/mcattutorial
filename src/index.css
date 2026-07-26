@@ -34,8 +34,45 @@
 }
 
 @layer components {
+  /**
+   * Single source of truth for the page's horizontal rhythm — every section wraps
+   * its content in this, so the gutter is tuned here and nowhere else.
+   *
+   * The gutter lives in a custom property so the safe-area rule below can reuse it
+   * without repeating each breakpoint. Physical padding (not `padding-inline`) and
+   * plain media queries keep this working identically in Chrome, Safari and Firefox.
+   */
   .container-page {
-    @apply mx-auto w-full max-w-[1160px] px-6;
+    --gutter: 16px;
+    @apply mx-auto w-full max-w-[1320px];
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+
+  @media (min-width: 640px) {
+    .container-page {
+      --gutter: 24px;
+    }
+  }
+
+  /* Only widens once the 1320px cap is close to binding, so mid-size laptops
+     (1024–1280px) keep every pixel of content width rather than losing it to padding. */
+  @media (min-width: 1280px) {
+    .container-page {
+      --gutter: 32px;
+    }
+  }
+
+  /**
+   * Keeps content clear of the notch/rounded corners when an iPhone is held in
+   * landscape. Guarded by @supports so browsers without `max()` simply keep the
+   * flat padding above instead of dropping the declaration entirely.
+   */
+  @supports (padding: max(0px)) {
+    .container-page {
+      padding-left: max(var(--gutter), env(safe-area-inset-left));
+      padding-right: max(var(--gutter), env(safe-area-inset-right));
+    }
   }
 
   .section {
