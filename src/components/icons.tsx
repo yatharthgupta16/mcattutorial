@@ -24,14 +24,6 @@ function StrokeIcon({ size = 21, children, ...props }: IconProps) {
   );
 }
 
-export function StarIcon({ size = 18, ...props }: IconProps) {
-  return (
-    <StrokeIcon size={size} strokeWidth={2.2} {...props}>
-      <path d="M12 2l2.4 6.9L21 12l-6.6 3.1L12 22l-2.4-6.9L3 12l6.6-3.1z" />
-    </StrokeIcon>
-  );
-}
-
 export function ArrowRightIcon({ size = 16, ...props }: IconProps) {
   return (
     <StrokeIcon size={size} strokeWidth={2.4} {...props}>

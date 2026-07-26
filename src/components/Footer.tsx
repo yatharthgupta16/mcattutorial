@@ -8,7 +8,7 @@ export function Footer() {
       <div className="container-page">
         <div className="flex flex-wrap justify-between gap-9 border-b border-white/10 pb-10">
           <div className="max-w-[380px]">
-            <Logo className="mb-1.5 text-white" />
+            <Logo onDark className="mb-1.5 text-white" />
             <p className="mb-3.5 text-sm font-bold text-green">{SITE_TAGLINE}</p>
             <p className="text-[14.5px]">
               Helping future medical students prepare with confidence through personalized

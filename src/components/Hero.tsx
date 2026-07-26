@@ -85,13 +85,15 @@ export function Hero() {
             </Reveal>
           </div>
 
+          {/* 3/2 matches the source exactly — cropping this 612px-wide image to 4/3
+              would discard width it can't spare at the hero's render size. */}
           <PhotoCard
             priority
-            src="student-library.jpg"
-            alt="Student studying for the MCAT with a laptop and textbooks at a library desk"
-            width={1200}
-            height={675}
-            aspect="aspect-[4/3]"
+            src="student-desk.jpg"
+            alt="Student studying for the MCAT on a laptop at a home desk"
+            width={612}
+            height={408}
+            aspect="aspect-[3/2]"
             className="lg:sticky lg:top-[100px]"
           />
         </div>

@@ -103,10 +103,10 @@ export function Program() {
           </SectionHead>
 
           <PhotoCard
-            src="study-planning.jpg"
-            alt="Student following a personalized MCAT study plan, taking notes beside a laptop"
-            width={612}
-            height={407}
+            src="student-library.jpg"
+            alt="Student working through an MCAT study plan with a laptop and textbooks at a library desk"
+            width={1200}
+            height={675}
             aspect="aspect-[3/2]"
             caption="Weekly study plans you actually follow — built around your schedule."
           />

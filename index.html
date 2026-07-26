@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Relative, not root-absolute: "/favicon.png" would 404 on GitHub Pages, where the
+         site is served from the /mcattutorial/ subpath. This form works there and on Vercel. -->
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
     <!-- viewport-fit=cover lets section backgrounds run edge-to-edge on notched
          phones; .container-page pads content back off the notch via safe-area insets. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
