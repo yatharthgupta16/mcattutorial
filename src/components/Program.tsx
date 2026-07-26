@@ -1,6 +1,7 @@
 import type { ComponentType } from "react";
 import { SectionHead } from "./SectionHead";
 import { CtaBand } from "./CtaBand";
+import { PhotoCard } from "./PhotoCard";
 import { Reveal } from "./Reveal";
 import { Grid2 } from "./Struggle";
 import {
@@ -82,20 +83,34 @@ export function Program() {
   return (
     <section className="section bg-mint">
       <div className="container-page">
-        <SectionHead
-          title={
-            <>
-              What's Included in Your{" "}
-              <span className="text-green">Personalized MCAT Coaching Program</span>
-            </>
-          }
-        >
-          <p>
-            Every student's MCAT preparation is different. Our personalized online MCAT
-            coaching is designed around your current level, target score, timeline, and
-            learning style to help you prepare more efficiently and improve with confidence.
-          </p>
-        </SectionHead>
+        {/* Two-column intro: the heading previously capped at 760px and left the rest of
+            the row empty, so the photo now occupies that space instead of adding height. */}
+        <div className="mb-[52px] grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-14">
+          <SectionHead
+            flush
+            title={
+              <>
+                What's Included in Your{" "}
+                <span className="text-green">Personalized MCAT Coaching Program</span>
+              </>
+            }
+          >
+            <p>
+              Every student's MCAT preparation is different. Our personalized online MCAT
+              coaching is designed around your current level, target score, timeline, and
+              learning style to help you prepare more efficiently and improve with confidence.
+            </p>
+          </SectionHead>
+
+          <PhotoCard
+            src="study-planning.jpg"
+            alt="Student following a personalized MCAT study plan, taking notes beside a laptop"
+            width={612}
+            height={407}
+            aspect="aspect-[3/2]"
+            caption="Weekly study plans you actually follow — built around your schedule."
+          />
+        </div>
 
         <div className="space-y-11">
           {pillars.map((pillar) => (

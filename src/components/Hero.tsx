@@ -1,6 +1,6 @@
 import { CtaBand } from "./CtaBand";
+import { PhotoCard } from "./PhotoCard";
 import { Reveal } from "./Reveal";
-import { useInView } from "../hooks/useInView";
 
 const highlights = [
   "Live 1-on-1 MCAT Coaching",
@@ -85,35 +85,17 @@ export function Hero() {
             </Reveal>
           </div>
 
-          <HeroImage />
+          <PhotoCard
+            priority
+            src="student-library.jpg"
+            alt="Student studying for the MCAT with a laptop and textbooks at a library desk"
+            width={1200}
+            height={675}
+            aspect="aspect-[4/3]"
+            className="lg:sticky lg:top-[100px]"
+          />
         </div>
       </div>
     </section>
-  );
-}
-
-/**
- * Deliberately opacity-only (no transform): `position: sticky` breaks on an element
- * whose ancestor has an active `transform`, which the shared Reveal component sets
- * while animating in — so this one fades without translating to keep the sticky
- * desktop behavior intact.
- */
-function HeroImage() {
-  const { ref, inView } = useInView<HTMLDivElement>();
-
-  return (
-    <div
-      ref={ref}
-      className={`overflow-hidden rounded-card border border-line bg-white shadow-card transition-opacity duration-700 ease-out lg:sticky lg:top-[100px] ${
-        inView ? "opacity-100" : "opacity-0"
-      }`}
-      style={{ transitionDelay: inView ? "200ms" : "0ms" }}
-    >
-      <img
-        src={`${import.meta.env.BASE_URL}hero-student.jpg`}
-        alt="Student preparing for the MCAT"
-        className="aspect-[4/3] w-full object-cover"
-      />
-    </div>
   );
 }
