@@ -20,7 +20,24 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="/mcattutorial/assets/index-BFvurfad.js"></script>
+    <!-- Calendly popup widget, opened by BookingLink. Loaded async: the booking
+         buttons keep a real href, so they still work before this arrives.
+         calendly.com is preconnected too — that host isn't hit until a CTA is
+         clicked, so warming DNS/TLS early takes setup off the popup's critical path. -->
+    <link rel="preconnect" href="https://assets.calendly.com" />
+    <link rel="preconnect" href="https://calendly.com" />
+    <!-- media="print" then swapped on load: this stylesheet only styles the popup
+         overlay, so letting it block first paint costs every visitor ~2.5s for markup
+         that most of them never see. No noscript fallback needed — without JS the
+         popup never opens and BookingLink just navigates to Calendly instead. -->
+    <link
+      href="https://assets.calendly.com/assets/external/widget.css"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <script type="module" crossorigin src="/mcattutorial/assets/index-C4CPWwoY.js"></script>
     <link rel="stylesheet" crossorigin href="/mcattutorial/assets/index-M9Whsseo.css">
   </head>
   <body>
