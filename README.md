@@ -20,8 +20,10 @@ Single-page marketing site for NorthStar Med, offering personalized one-on-one o
 - **Final CTA** — gradient panel anchored at `#calendar`
 - **Footer** — brand, contact links, legal
 
-All "Book Your Free MCAT Consultation" buttons open the Google Calendar booking page; all
-"Chat on WhatsApp" buttons open WhatsApp. Both URLs (plus email) live in `src/lib/site.ts`.
+All "Book Your Free MCAT Consultation" buttons render `BookingLink`, which opens Calendly
+as a popup (falling back to navigating to the booking page if the widget script does not
+load); all "Chat on WhatsApp" buttons open WhatsApp. Both URLs (plus email) live in
+`src/lib/site.ts`.
 
 ## Run
 

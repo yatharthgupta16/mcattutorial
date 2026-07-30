@@ -34,20 +34,9 @@ export function Footer() {
             </a>
           </div>
         </div>
-        <div className="flex flex-wrap justify-between gap-3 pt-[26px] text-[13.5px]">
-          <span>
-            © {new Date().getFullYear()} {SITE_NAME}. All Rights Reserved.
-          </span>
-          <span className="flex items-center gap-2">
-            <a className="transition hover:text-white" href="#top">
-              Privacy Policy
-            </a>
-            <span>|</span>
-            <a className="transition hover:text-white" href="#top">
-              Terms &amp; Conditions
-            </a>
-          </span>
-        </div>
+        <p className="pt-[26px] text-[13.5px]">
+          © {new Date().getFullYear()} {SITE_NAME}. All Rights Reserved.
+        </p>
       </div>
     </footer>
   );

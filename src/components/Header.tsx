@@ -1,5 +1,6 @@
-import { CALENDAR_URL, WHATSAPP_URL } from "../lib/site";
+import { WHATSAPP_URL } from "../lib/site";
 import { useScrollProgress } from "../hooks/useScrollProgress";
+import { BookingLink } from "./BookingLink";
 import { Logo } from "./Logo";
 import { WhatsAppIcon } from "./icons";
 
@@ -32,14 +33,9 @@ export function Header() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-3 max-[820px]:ml-auto">
-          <a
-            className="btn btn-primary whitespace-nowrap px-[18px] py-[10px] text-[13px] min-[380px]:px-[22px] min-[380px]:py-[11px] min-[380px]:text-sm"
-            href={CALENDAR_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <BookingLink className="btn btn-primary whitespace-nowrap px-[18px] py-[10px] text-[13px] min-[380px]:px-[22px] min-[380px]:py-[11px] min-[380px]:text-sm">
             Book Free Consultation
-          </a>
+          </BookingLink>
           <a
             className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-whatsapp text-white transition hover:-translate-y-px"
             href={WHATSAPP_URL}

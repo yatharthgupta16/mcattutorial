@@ -1,4 +1,5 @@
-import { CALENDAR_URL, WHATSAPP_URL } from "../lib/site";
+import { WHATSAPP_URL } from "../lib/site";
+import { BookingLink } from "./BookingLink";
 import { WhatsAppIcon } from "./icons";
 import { Reveal } from "./Reveal";
 
@@ -29,14 +30,9 @@ export function FinalCta() {
               <strong className="font-bold text-white">the right fit</strong> for you.
             </p>
             <div className="mt-[30px] flex flex-wrap justify-center gap-3.5">
-              <a
-                className="btn bg-white text-green-dark transition-all duration-200 hover:scale-[1.03]"
-                href={CALENDAR_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <BookingLink className="btn bg-white text-green-dark transition-all duration-200 hover:scale-[1.03]">
                 Book Your Free MCAT Consultation
-              </a>
+              </BookingLink>
               <a
                 className="btn border-[1.5px] border-white/40 bg-white/[0.14] text-white transition-all duration-200 hover:scale-[1.03] hover:bg-white/20"
                 href={WHATSAPP_URL}

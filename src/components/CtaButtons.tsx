@@ -1,4 +1,5 @@
-import { CALENDAR_URL, WHATSAPP_URL } from "../lib/site";
+import { WHATSAPP_URL } from "../lib/site";
+import { BookingLink } from "./BookingLink";
 import { ArrowRightIcon, WhatsAppIcon } from "./icons";
 
 interface CtaButtonsProps {
@@ -9,15 +10,10 @@ interface CtaButtonsProps {
 export function CtaButtons({ withIcons = false }: CtaButtonsProps) {
   return (
     <div className="flex flex-wrap gap-3.5">
-      <a
-        className="btn btn-primary"
-        href={CALENDAR_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <BookingLink className="btn btn-primary">
         Book Your Free MCAT Consultation
         {withIcons && <ArrowRightIcon />}
-      </a>
+      </BookingLink>
       <a
         className="btn btn-secondary"
         href={WHATSAPP_URL}
